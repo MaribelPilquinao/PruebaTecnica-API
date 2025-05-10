@@ -7,8 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-//builder.Services.AddEndpointsApiExplorer();
-//builder.Services.AddSwaggerGen();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 //servicios de productos
 builder.Services.AddScoped<ProductRepository>();
@@ -22,16 +22,24 @@ builder.Services.AddScoped<ClienteService>();
 builder.Services.AddScoped<PedidoRepository>();
 builder.Services.AddScoped<PedidoService>();
 
+//configuracion de puerto
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenLocalhost(7198, listenOptions =>
+    {
+        listenOptions.UseHttps(); // puerto 7198
+    });
+});
 
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-//{
-//    app.UseSwagger();
-//    app.UseSwaggerUI();
-//}
+//Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+app.UseSwaggerUI();
+}
 
 app.UseHttpsRedirection();
 
