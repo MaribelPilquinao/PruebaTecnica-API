@@ -31,6 +31,9 @@ builder.WebHost.ConfigureKestrel(options =>
     });
 });
 
+//habitar http
+builder.Services.AddHttpClient();
+
 
 var app = builder.Build();
 
