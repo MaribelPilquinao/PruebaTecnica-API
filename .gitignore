@@ -361,3 +361,12 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+
+appsettings.Development.json
+secrets.json
+
+#secretos de usuario (.NET user-secrets)
+**/.vs/
+**/.vscode/
+**/.usersecrets/
