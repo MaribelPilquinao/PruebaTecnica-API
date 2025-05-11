@@ -1,4 +1,4 @@
-# Prueba_crud
+# Prueba_crud + consulta de productos con IA FLask
 Proyecto desarrollado como parte de una prueba técnica para un puesto de desarrollador .NET Core. Consiste en una API RESTful utilizando ASP.NET Core 8, MySQL y Dapper
 Tecnologías usadas:
 - ASP.NET Core 8 Web API
